@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>조연주 - 디지털 명함</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <!-- QR Code Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Constellation Canvas Background -->
+    <canvas id="constellation"></canvas>
+
+    <div class="container">
+        <div class="top-background"></div>
+        
+        <!-- ==============================================
+             HOME SCREEN 
+             ============================================== -->
+        <div id="home-view" class="view-section active">
+            
+            <!-- 1. 프로필 상단 -->
+            <header class="profile-header">
+                <div class="profile-img-wrapper">
+                    <img src="profile.jpg" alt="Profile" class="profile-img">
+                </div>
+                <h1 class="profile-name" id="ui-name">조연주</h1>
+                <h2 class="profile-title" id="ui-title">AI활용 · 디지털강사</h2>
+                <ul class="profile-roles" id="ui-specialties">
+                    <!-- Javascript will populate this -->
+                </ul>
+            </header>
+
+            <!-- 2. 메인 소개 카드 -->
+            <section class="info-banners">
+                <div class="banner-card gradient-banner">
+                    <h3 id="ui-main-title">쉽고 따뜻한 디지털·AI 교육</h3>
+                    <p id="ui-main-body">스마트폰부터 생성형 AI까지...</p>
+                </div>
+            </section>
+
+            <!-- 3. 메인 메뉴 (3개) -->
+            <section class="main-menus">
+                <div class="menu-card" id="menu-about">
+                    <div class="menu-icon">👩‍🏫</div>
+                    <div class="menu-content">
+                        <div class="menu-title">강사소개</div>
+                        <div class="menu-desc">교육 분야와 활동을 소개합니다.</div>
+                    </div>
+                    <div class="menu-arrow">&gt;</div>
+                </div>
+
+                <div class="menu-card" id="menu-blog">
+                    <div class="menu-icon">📝</div>
+                    <div class="menu-content">
+                        <div class="menu-title">네이버 블로그</div>
+                        <div class="menu-desc">스마트폰·AI 활용 정보를 만나보세요.</div>
+                    </div>
+                    <div class="menu-arrow">&gt;</div>
+                </div>
+
+                <div class="menu-card" id="menu-youtube">
+                    <div class="menu-icon">▶</div>
+                    <div class="menu-content">
+                        <div class="menu-title">유튜브</div>
+                        <div class="menu-desc">AI·디지털 활용 영상을 만나보세요.</div>
+                    </div>
+                    <div class="menu-arrow">&gt;</div>
+                </div>
+            </section>
+
+            <!-- 4. 연락 영역 (저장 및 톡톡) -->
+            <section class="action-buttons">
+                <button id="btn-save-contact" class="main-action-btn primary-btn">연락처 저장하기</button>
+                <!-- 변경됨: 카카오톡 -> 네이버톡톡 -->
+                <button id="btn-navertalk" class="main-action-btn navertalk-btn">네이버톡톡 문의하기</button>
+            </section>
+
+            <!-- 5. 보조 메뉴 (전화, 문자, 이메일, 공유) -->
+            <section class="quick-contact">
+                <a href="#" id="link-tel" class="quick-btn"><span class="icon">📞</span>전화</a>
+                <a href="#" id="link-sms" class="quick-btn"><span class="icon">💬</span>문자</a>
+                <a href="#" id="link-email" class="quick-btn"><span class="icon">✉️</span>이메일</a>
+                <button id="btn-share" class="quick-btn"><span class="icon">📤</span>공유</button>
+            </section>
+
+            <!-- 6. QR 모달 버튼 -->
+            <section class="qr-buttons-area">
+                <button id="btn-show-my-qr" class="qr-btn">내 명함 QR</button>
+                <button id="btn-show-talk-qr" class="qr-btn">톡톡문의 QR</button>
+            </section>
+
+            <div style="height: 40px;"></div>
+        </div>
+
+        <!-- ==============================================
+             ABOUT SCREEN (강사소개 페이지)
+             ============================================== -->
+        <div id="about-view" class="view-section" style="display: none;">
+            <button id="btn-back-home" class="back-btn">
+                <span class="back-icon">←</span> 홈으로
+            </button>
+
+            <div class="about-header-title">강사소개</div>
+
+            <section class="white-card">
+                <h3 id="ui-about-title" class="section-title">나의 소개</h3>
+                <div id="ui-about-body" class="about-text">
+                    <!-- Javascript will populate this -->
+                </div>
+                <div id="ui-about-highlights" class="highlight-badges">
+                    <!-- Javascript will populate this -->
+                </div>
+            </section>
+
+            <section class="white-card">
+                <h3 class="section-title">주요 교육 분야</h3>
+                <div id="ui-edu-areas" class="edu-grid">
+                    <!-- Javascript will populate this -->
+                </div>
+            </section>
+            
+            <!-- 자격 및 전문 역량 추가 -->
+            <section class="white-card">
+                <h3 class="section-title">자격 및 전문 역량</h3>
+                <div id="ui-certifications" class="cert-grid">
+                    <!-- Javascript will populate this -->
+                </div>
+            </section>
+            
+            <div style="height: 40px;"></div>
+        </div>
+
+    </div>
+
+    <!-- QR Modal -->
+    <div id="qr-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3 id="modal-qr-title" class="modal-title">QR코드</h3>
+            <p id="modal-qr-desc" class="modal-desc">안내문구</p>
+            <div class="qr-wrapper">
+                <div id="modal-qrcode"></div>
+            </div>
+            <button class="close-modal-btn">닫기</button>
+        </div>
+    </div>
+
+    <script src="profile.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
