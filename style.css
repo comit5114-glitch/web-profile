@@ -282,6 +282,11 @@ body {
 .about-text p:last-child {
     margin-bottom: 0;
 }
+.about-text strong {
+    font-weight: 800;
+    color: var(--primary-teal);
+    background: linear-gradient(transparent 70%, rgba(139, 92, 246, 0.15) 30%);
+}
 
 /* About Highlights Badges */
 .highlight-badges {

@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const aboutBody = document.getElementById('ui-about-body');
     profile.aboutMe.paragraphs.forEach(text => {
         const p = document.createElement('p');
-        p.textContent = text;
+        p.innerHTML = text; // <strong> 등 HTML 태그를 인식하도록 수정
         aboutBody.appendChild(p);
     });
 
